@@ -14,8 +14,26 @@ const rl = readline.createInterface({
 const pigLatin = (word) => {
 
   // Your code here
+  const pigLatin = (input) => {
 
-}
+    input = "Thunder";
+    const cleanedUp = input.trim().toLowerCase();
+    let firstLetter = cleanedUp.slice(0,1);
+    let firstTwoLetters = cleanedUp.slice(0,2);
+    
+    
+    if (firstLetter === 'a' || firstLetter === 'e' || firstLetter === 'i' || firstLetter === 'o'|| firstLetter === 'u') {
+      return cleanedUp + "ay";
+    }  
+     else if (firstTwoLetters === "th" || firstTwoLetters === "sh" || firstTwoLetters ==="ph" || firstTwoLetters === "ch" || firstTwoLetters === "wh") {
+      return cleanedUp.slice(2)+cleanedUp.slice(0,2)+"ay"; 
+    } 
+      
+    else {
+      return cleanedUp.slice(1) + cleanedUp.slice(0,1)+"ay";
+    }
+    }
+    console.log(pigLatin(""))
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
