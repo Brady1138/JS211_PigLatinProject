@@ -45,6 +45,32 @@ const getPrompt = () => {
   });
 }
 
+const textInput = document.getElementById('user-input');
+const button = document.getElementById('button');
+const reset = document.getElementById('reset');
+const textOutput = document.getElementById('textOutput');
+
+textInput.addEventListener('keyup', (event) => {
+  console.log(event.target.value)
+});
+
+button.addEventListener('click', (event) => {
+  let pigWord = convertToPigLatin(input)
+  textOutput.innerText = PigWord
+});
+
+button.addEventListener('click', (event) => {
+  let words = input.split('  ')
+  let pigWord = words.map(word => convertToPigLatin(word)).join('  *oink*'   );
+  textOutput.innerText = pigWord
+})
+
+reset.addEventListener('click', (e) => {
+  textInput.value = '';
+  textOutput.innerText = '';
+  console.log('click');
+})
+
 // Unit Tests
 // to use them run the command: npm test main.js
 // to close them ctrl + C
